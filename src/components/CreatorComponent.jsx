@@ -1,10 +1,18 @@
 import { useNavigate } from 'react-router';
 import { FaExternalLinkAlt, FaEdit, FaTrash  } from "react-icons/fa"; // icons
 import { supabase } from "../client"; 
-import "../App.css"; // import your CSS file
+import "../App.css";
 
 const CreatorComponent = ({name, url, description, imageURL, onDelete }) => {
     const navigate = useNavigate();
+
+    // Truncate description to 30 words
+    const getTruncatedDescription = (text) => {
+        if (!text) return "";
+            const words = text.split(" ");
+        if (words.length <= 10) return text;
+            return words.slice(0, 10).join(" ") + " ...";
+    };
 
     // Delete function
     const handleDelete = async (e) => {
@@ -30,7 +38,7 @@ const CreatorComponent = ({name, url, description, imageURL, onDelete }) => {
             {/* Content Section */}
             <div className="creator-content">
                 <h2 className="creator-name">{name}</h2>
-                <p className="creator-description">{description}</p>
+                <p className="creator-description">{getTruncatedDescription(description)}</p>
 
                 {/* Buttons */}
                 <div className="creator-actions">

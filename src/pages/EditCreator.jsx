@@ -59,33 +59,27 @@ const EditCreator = () => {
         <div>
             <h1>Edit Creator</h1>
             <form onSubmit={handleSubmit}>
-                <div>
                 <label>Name:</label>
                 <input name="name" value={creator.name} onChange={handleChange} />
-                </div>
-                <div>
                 <label>URL:</label>
                 <input name="url" value={creator.url} onChange={handleChange} />
-                </div>
-                <div>
+                
                 <label>Description:</label>
                 <textarea
                     name="description"
                     value={creator.description}
                     onChange={handleChange}
                 />
-                </div>
-                <div>
+                
                 <label>Image URL:</label>
                 <input
                     name="imageURL"
                     value={creator.imageURL}
                     onChange={handleChange}
                 />
-                </div>
                 <button type="submit">Update Creator</button>
             </form>
-            </div>
+        </div>
     )
 }
 

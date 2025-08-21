@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom"; // <-- should be react-router-dom
+import { useParams } from "react-router-dom";
 import { supabase } from "../client";
+import { FaExternalLinkAlt } from "react-icons/fa";
 
 const ViewCreator = () => {
   const { name } = useParams();
@@ -27,10 +28,26 @@ const ViewCreator = () => {
   if (!creator) return <p>Loading...</p>;
 
   return (
-    <div>
-      <h1>{creator.name}</h1>
-      <img src={creator.imageURL} alt={creator.name} />
-      <p>{creator.description}</p>
+    <div className="view-creator-container">
+      <div className="view-creator-card">
+        <img
+          src={creator.imageURL}
+          alt={creator.name}
+          className="view-creator-image"
+        />
+        <div className="view-creator-info">
+          <h1 className="view-creator-name">{creator.name}</h1>
+          <a
+            href={creator.url}
+            className="view-creator-link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaExternalLinkAlt /> Visit Creator Page
+          </a>
+          <p className="view-creator-description">{creator.description}</p>
+        </div>
+      </div>
     </div>
   );
 };

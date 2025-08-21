@@ -30,12 +30,14 @@ const AddCreator = () => {
 
     return (
         <form onSubmit={handleSubmit}>
+            <label>Add New Creator</label>
             <input
                 type="text"
                 placeholder="Name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
             />
+            <label>Creator URL</label>
             <input
                 type="text"
                 placeholder="URL"
@@ -43,11 +45,13 @@ const AddCreator = () => {
                 onChange={(e) => setUrl(e.target.value)}
 
             />
+            <label>Description</label>
             <textarea
                 placeholder="Description"
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
             />
+            <label>Image URL</label>
             <input
                 type="text"
                 placeholder="Image URL"
